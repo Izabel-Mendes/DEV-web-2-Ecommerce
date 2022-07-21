@@ -26,6 +26,7 @@ jobs:
         pip freeze > requirements.txt
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        python3 -m venv venv
     - name: Run Tests   
       run: |
         Source venv/bin/activate
