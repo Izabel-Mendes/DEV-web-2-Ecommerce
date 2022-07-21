@@ -21,9 +21,13 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install Dependencies
+    - name: Setup env
       run: |
-            pipenv requirements -i https://pypi.org/simple > requirements.txt
+          echo "\nENV_NAME=staging" >> .env
+          pip install pipenv==2022.4.30
+
+      - name: Create Deployment Dependencies File
+        run: pipenv requirements > requirements.txt
     - name: Run Tests
       run: |
         python manage.py test
