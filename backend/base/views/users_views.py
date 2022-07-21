@@ -11,6 +11,12 @@ from ..serializers import ProductSerializer, UserSerializer, UserSerializerWithT
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
+from django.views.decorators.cache import cache_page
+
+#Mantém armazenado em cache por 50s
+
+
+@cache_page(50)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
