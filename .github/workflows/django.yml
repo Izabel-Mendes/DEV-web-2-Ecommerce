@@ -29,6 +29,6 @@ jobs:
         python3 -m venv venv
     - name: Run Tests   
       run: |
-        Source venv/bin/activate
+        venv\Scripts\activate.bat
         cd backend
         python manage.py test
